@@ -232,12 +232,16 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! PageCell
             if cell.stackView.arrangedSubviews.count < 1 {
                 cell.stackView.addArrangedSubview(self.followingViewController.view)
+                self.addChild(self.followingViewController)
+                self.followingViewController.didMove(toParent: self)
             }
             return cell
         case self.forYouViewController:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! PageCell
             if cell.stackView.arrangedSubviews.count < 1 {
                 cell.stackView.addArrangedSubview(self.forYouViewController.view)
+                self.addChild(self.forYouViewController)
+                self.forYouViewController.didMove(toParent: self)
             }
             return cell
         default:
